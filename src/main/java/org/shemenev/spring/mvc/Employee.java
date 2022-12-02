@@ -1,11 +1,16 @@
 package org.shemenev.spring.mvc;
 
+import org.shemenev.spring.mvc.validation.CheckEmail;
+
+import javax.validation.constraints.*;
+
 public class Employee {
-
+    @Size(min = 2, message = "name must be longer than 2")
     private String name;
-
+    @NotBlank(message = "required filed")
     private String surname;
-
+    @Min(value = 500, message = "must be bigger than 499")
+    @Max(value = 5000, message = "must be less than 5000")
     private int salary;
 
     private String department;
@@ -13,6 +18,11 @@ public class Employee {
     private String carBrand;
 
     private String[] languages;
+    @Pattern(regexp = "\\d{3}-\\d{3}-\\d{2}-\\d{2}", message = "please, use pattern xxx-xxx-xx-xx")
+    private String phoneNumber;
+
+    @CheckEmail(value = "gmail.com", message = "email must ends with abc.com ")
+    private String email;
 
 
     public Employee() {
@@ -71,6 +81,22 @@ public class Employee {
 
     public void setLanguages(String[] languages) {
         this.languages = languages;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
