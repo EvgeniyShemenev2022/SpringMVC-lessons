@@ -32,6 +32,13 @@ Your foreign language(s):
 </c:forEach>
 </ul>
 
+<br>
+<br>
+Your phoneNumber: ${employee.phoneNumber}
+
+<br>
+<br>
+Your carBrand: ${employee.email}
 
 <br>
 <br>
